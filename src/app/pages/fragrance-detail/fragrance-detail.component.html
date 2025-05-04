@@ -1,0 +1,29 @@
+<div class="fragrance-container">
+    <mat-card class="fragrance-card">
+      <div class="image-container">
+        <img src="https://via.placeholder.com/400" alt="Fragrance Image">
+      </div>
+      <div class="details">
+        <h1>{{ fragranceName }}</h1>
+        <p><strong>Perfumer:</strong> {{ perfumer }}</p>
+        <p><strong>Notes:</strong> {{ notes }}</p>
+        <p><strong>Votes:</strong> {{ votes }} ⭐</p>
+      </div>
+    </mat-card>
+    <app-favorite-perfumes></app-favorite-perfumes>
+    <mat-card class="comment-section">
+      <h2>Comments</h2>
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Write a comment...</mat-label>
+        <input matInput [(ngModel)]="newComment">
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" (click)="addComment()">Post</button>
+  
+      <div class="comments">
+        <p *ngFor="let comment of comments">💬 {{ comment }}</p>
+      </div>
+    </mat-card>
+  </div>
+  
