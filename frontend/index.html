@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuni-Scent | Fragrance Review Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-name">TUNI-SCENT</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="brands.html">Brands</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signin.html">Sign Up</a>
+          </li>
+        </ul>
+        <form id="searchForm" class="d-flex">
+          <div class="input-group">
+            <input class="form-control search-input" type="search" placeholder="Search fragrances..." id="searchInput">
+            <button class="btn btn-outline-dark">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </form>
+        <div class="ms-4">
+          <!-- Added margin-left spacing -->
+          <a href="panier.html" class="text-dark text-decoration-none">
+            <i class="bi bi-cart3" style="font-size: 1.25rem;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section class="hero-section py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-4 fw-bold mb-4">Discover Your Signature Scent</h1>
+          <p class="lead mb-4">Explore the world of fragrances with expert reviews and personalized recommendations.</p>
+        </div>
+        <div class="col-lg-6">
+          <img src="img/dior private line.jpeg" alt="Luxury fragrance bottles" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Update the Featured Fragrance section in index.html -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 id="fragrances" class="section-title text-center mb-5">Featured Fragrance</h2>
+      <div class="position-relative">
+        <!-- Navigation Arrows -->
+        <button class="btn btn-link position-absolute top-50 start-0 translate-middle-y" onclick="previousFragrance()">
+          <i class="bi bi-chevron-left fs-1 text-dark"></i>
+        </button>
+        <button class="btn btn-link position-absolute top-50 end-0 translate-middle-y" onclick="nextFragrance()">
+          <i class="bi bi-chevron-right fs-1 text-dark"></i>
+        </button>
+        <!-- Fragrance Content Container -->
+        <div class="row" id="fragranceContainer">
+          <div class="col-md-5">
+            <div class="fragrance-image-container">
+              <img src="img/dior Sauvage.jpg" alt="Dior Sauvage" class="img-fluid rounded shadow" id="fragranceImage">
+              <button id="fav-btn" class="btn btn-sm btn-outline-dark favorite-btn" data-id="1">
+                <i class="bi bi-heart"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="fragrance-details">
+              <h3 class="fragrance-name" id="fragranceName">Sauvage</h3>
+              <h4 class="fragrance-brand mb-4" id="fragranceBrand">Dior</h4>
+              <!-- Keep existing rating and notes structure -->
+              <!-- Update IDs for dynamic content -->
+              <div class="notes-container">
+                <div class="notes-section mb-3">
+                  <h5>Top Notes</h5>
+                  <div class="notes-pills" id="topNotes"></div>
+                </div>
+                <div class="notes-section mb-3">
+                  <h5>Heart Notes</h5>
+                  <div class="notes-pills" id="heartNotes"></div>
+                </div>
+                <div class="notes-section mb-4">
+                  <h5>Base Notes</h5>
+                  <div class="notes-pills" id="baseNotes"></div>
+                </div>
+              </div>
+              <div class="description mb-4">
+                <p id="fragranceDescription">A radically fresh composition...</p>
+              </div>
+              <div class="actions">
+                <button id="writeReviewBtn" class="btn btn-outline-dark ms-2">Write a Review</button>
+                <button class="btn btn-outline-dark ms-2" onclick="addToCollection(currentFragrance.id, currentFragrance.name, currentFragrance.image, currentFragrance.brand)"> Add to Collection </button>
+                <!-- Modify the Add to Cart button in the featured fragrance section -->
+                <button class="btn btn-outline-dark ms-2" onclick="addToCart(currentFragrance.id)"> Add to Cart </button>
+                <!-- Change the existing button to this -->
+                <div id="reviewForm" style="display: none; margin-top: 10px;">
+                    <div id="starRating" style="margin-bottom: 10px;">
+                        <span class="star" data-value="1">&#9733;</span>
+                        <span class="star" data-value="2">&#9733;</span>
+                        <span class="star" data-value="3">&#9733;</span>
+                        <span class="star" data-value="4">&#9733;</span>
+                        <span class="star" data-value="5">&#9733;</span>
+                      </div>
+                      <textarea id="reviewText" placeholder="Write your review..."></textarea>
+                  <br>
+                  <button id="submitReview" class="btn btn-outline-dark ms-2">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ <section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Recent Reviews</h2>
+        <div class="row" id="reviewsContainer">
+            <!-- Reviews will be dynamically inserted here -->
+        </div>
+    </div>
+</section>
+
+<script>
+    // Function to fetch reviews from the backend
+    async function fetchReviews() {
+        try {
+            const response = await fetch("http://localhost:5000/reviews");  // Update the URL as per your API
+            if (!response.ok) {
+                throw new Error("Failed to fetch reviews");
+            }
+
+            const reviews = await response.json();  // Assuming the response is a JSON array of reviews
+            displayReviews(reviews);
+        } catch (error) {
+            console.error("Error fetching reviews:", error);
+            alert("An error occurred while fetching the reviews.");
+        }
+    }
+
+    // Function to display reviews on the page
+    function displayReviews(reviews) {
+        const reviewsContainer = document.getElementById("reviewsContainer");
+        reviewsContainer.innerHTML = "";  // Clear any existing content
+
+        reviews.forEach(review => {
+            const reviewCard = document.createElement("div");
+            reviewCard.classList.add("col-md-4", "mb-4");
+
+            reviewCard.innerHTML = `
+                <div class="review-card">
+                    <div class="review-header d-flex align-items-center mb-3">
+                        <img src="http://localhost:5000/${review.user.image}" alt="User" class="review-avatar">
+                        <div class="ms-3">
+                            <h5 class="review-username mb-0">${review.user.name}</h5>
+                            <div class="review-rating">
+                                ${generateStars(review.rating)}
+                            </div>
+                        </div>
+                    </div>
+                    <h6 class="review-fragrance">${review.product.name}</h6>
+                    <p class="review-text">${review.content}</p>
+                    <div class="review-date">${new Date(review.created_at).toLocaleDateString()}</div>
+                </div>
+            `;
+            
+            reviewsContainer.appendChild(reviewCard);
+        });
+    }
+
+    // Function to generate star ratings
+    function generateStars(rating) {
+        const fullStars = Math.floor(rating);
+        const halfStar = rating % 1 >= 0.5;
+        const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+        let stars = "";
+        for (let i = 0; i < fullStars; i++) {
+            stars += '<i class="bi bi-star-fill"></i>';
+        }
+        if (halfStar) {
+            stars += '<i class="bi bi-star-half"></i>';
+        }
+        for (let i = 0; i < emptyStars; i++) {
+            stars += '<i class="bi bi-star"></i>';
+        }
+
+        return stars;
+    }
+
+    // Fetch and display reviews when the page loads
+    window.onload = fetchReviews;
+</script>
+
+  <footer class="footer py-5">
+    <div class="container text-center text-md-start">
+      <div class="row mt-3">
+        <!-- TUNI-SCENT -->
+        <div class="col-md-4">
+          <h5 class="text-uppercase mb-4">TUNI-SCENT</h5>
+          <p>Discover the perfect fragrance for every occasion with our expert reviews and personalized recommendations.</p>
+          <div class="d-flex gap-2 justify-content-start">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-pinterest"></i>
+          </div>
+        </div>
+        <!-- EXPLORE -->
+        <div class="col-md-4">
+          <h5 class="text-uppercase mb-4">Explore</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="index.html#fragrances">Fragrances</a>
+            </li>
+            <li class="mb-2">
+              <a href="brands.html">Brands</a>
+            </li>
+          </ul>
+        </div>
+        <!-- ACCOUNT -->
+        <div class="col-md-4">
+          <h5 class="text-uppercase mb-4">Account</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a class="profile-protected" href="profile.html">My Profile</a>
+            </li>
+            <li class="mb-2">
+              <a class="profile-protected" href="profile.html#collections">My Collection</a>
+            </li>
+            <li class="mb-2">
+              <a class="profile-protected" href="profile.html#reviews">My Reviews</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center py-3 mt-4"> © 2023 Tuni-Scent. All rights reserved. </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Review Modal -->
+  <div class="modal fade" id="reviewModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Write a Review</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="reviewForm">
+            <div class="mb-3">
+              <label class="form-label">Rating</label>
+              <div class="rating-stars">
+                <i class="bi bi-star fs-4" data-rating="1"></i>
+                <i class="bi bi-star fs-4" data-rating="2"></i>
+                <i class="bi bi-star fs-4" data-rating="3"></i>
+                <i class="bi bi-star fs-4" data-rating="4"></i>
+                <i class="bi bi-star fs-4" data-rating="5"></i>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Review</label>
+              <textarea class="form-control" rows="5" id="reviewText" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark">Submit Review</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    /* Add arrow styling */
+    .position-relative {
+      position: relative;
+    }
+
+    .btn-link {
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-link:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .bi-chevron-left,
+    .bi-chevron-right {
+      transition: transform 0.2s ease;
+    }
+
+    .btn-link:hover .bi-chevron-left {
+      transform: translateX(-2px);
+    }
+
+    .btn-link:hover .bi-chevron-right {
+      transform: translateX(2px);
+    }
+  </style>
+<script src="js/main.js"></script>
+<script>
+    let fragranceDatabase = [];
+    let currentIndex = 0;
+    let currentFragrance = null;
+
+    function updateFragranceDisplay() {
+      document.getElementById('fragranceName').textContent = currentFragrance.name;
+      document.getElementById('fragranceBrand').textContent = currentFragrance.brand;
+      document.getElementById('fragranceImage').src = `http://localhost:5000/static/${currentFragrance.image}`;
+      document.getElementById('fragranceDescription').textContent = currentFragrance.description;
+      document.getElementById('fav-btn').setAttribute('data-id', currentFragrance.id);
+      const updateNotes = (elementId, notes) => {
+        const container = document.getElementById(elementId);
+        container.innerHTML = notes.map(note => `<span class="note-pill">${note}</span>`).join('');
+      };
+      updateNotes('topNotes', currentFragrance.topNotes);
+      updateNotes('heartNotes', currentFragrance.heartNotes);
+      updateNotes('baseNotes', currentFragrance.baseNotes);
+    }
+
+    fetch('http://localhost:5000/products').then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch products');
+      }
+      return response.json();
+    }).then(data => {
+      if (!data.length) {
+        document.getElementById('fragranceContainer').innerHTML = `
+          <div class="col text-center">
+					  <p class="text-muted">No fragrances available at the moment. Please check back later.</p>
+					</div>
+      `;
+        return;
+      }
+      fragranceDatabase = data.map(product => ({
+        id: product.id,
+        name: product.name,
+        brand: product.brand,
+        image: product.image,
+        price: product.price,
+        description: product.description,
+        topNotes: product.topNotes,
+        heartNotes: product.heartNotes,
+        baseNotes: product.baseNotes
+      }));
+      currentFragrance = fragranceDatabase[currentIndex];
+      updateFragranceDisplay();
+      console.log('Fragrance database populated:', fragranceDatabase);
+    }).catch(error => {
+      console.error('Error loading fragrances:', error);
+      document.getElementById('fragranceContainer').innerHTML = `
+          <div class="col text-center">
+            <p class="text-danger">Failed to load fragrances. Please try again later.</p>
+          </div>
+      `;
+    });
+
+    
+    function nextFragrance() {
+  const fragranceContainer = document.getElementById('fragranceContainer');
+  
+  // Fade out
+  fragranceContainer.style.opacity = 0;
+
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % fragranceDatabase.length;
+    currentFragrance = fragranceDatabase[currentIndex];
+    updateFragranceDisplay();
+    
+    // Fade back in
+    fragranceContainer.style.opacity = 1;
+  }, 300); // Wait 300ms before updating and fading back
+}
+
+function previousFragrance() {
+  const fragranceContainer = document.getElementById('fragranceContainer');
+  
+  // Fade out
+  fragranceContainer.style.opacity = 0;
+
+  setTimeout(() => {
+    currentIndex = (currentIndex - 1 + fragranceDatabase.length) % fragranceDatabase.length;
+    currentFragrance = fragranceDatabase[currentIndex];
+    updateFragranceDisplay();
+    
+    // Fade back in
+    fragranceContainer.style.opacity = 1;
+  }, 300); // Wait 300ms before updating and fading back
+}
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('action') === 'review') {
+        document.getElementById("reviewForm").style.display = "block";
+        const reviewText = document.getElementById("reviewText")
+        reviewText?.select();
+        reviewText?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+
+    document.getElementById('fav-btn').addEventListener('click', addToFavorite)
+</script>
+</body>
+</html>

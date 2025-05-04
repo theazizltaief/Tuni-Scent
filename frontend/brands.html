@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brands | Tuni-Scent</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <span class="brand-name">TUNI-SCENT</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="brands.html">Brands</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+              
+                <li class="nav-item"><a class="nav-link" href="login.html">Log In</a></li>
+                <li class="nav-item"><a class="nav-link" href="signin.html">Sign Up</a></li>
+
+            </ul>
+           
+            <form id="searchForm" class="d-flex">
+                <div class="input-group">
+                  <input class="form-control search-input" type="search" placeholder="Search fragrances..." id="searchInput">
+                  <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi bi-search"></i>
+                  </button>
+                </div>
+              </form>
+              
+              
+            
+            <div class="ms-4"> <!-- Added margin-left spacing -->
+                <a href="panier.html" class="text-dark text-decoration-none">
+                    <i class="bi bi-cart3" style="font-size: 1.25rem;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="brands-header py-5 bg-light">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">Explore Fragrance Brands</h1>
+        <p class="lead mb-4">Discover the world's most prestigious and innovative fragrance houses.</p>
+
+    
+    </div>
+</section>
+
+<section class="featured-brands py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Featured Brands</h2>
+        
+        <div class="row">
+
+            <div class="col-md-6 mb-4">
+                <div class="brand-card" data-brand="dior">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="brand-logo-container">
+                                <img src="img\dior.jpg" alt="Dior" class="img-fluid rounded-start">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="brand-card-body">
+                                <h3>Dior</h3>
+                                <p class="brand-description">Founded in 1946, Christian Dior is a luxury French fashion house known for its elegant and sophisticated fragrances that have become modern classics.</p>
+                                <div class="brand-popular-scents">
+                                    <h6>Popular Fragrances:</h6>
+                                    <span class="scent-pill">Sauvage</span>
+                                    <span class="scent-pill">J'adore</span>
+                                    <span class="scent-pill">Miss Dior</span>
+                                </div>
+                                <br>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Brand 2 -->
+            <div class="col-md-6 mb-4">
+                <div class="brand-card" data-brand="chanel">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="brand-logo-container">
+                                <img src="img\chanel.jpg" alt="Chanel" class="img-fluid rounded-start">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="brand-card-body">
+                                <h3 id="BleuDeChanel">Chanel</h3>
+                                <p class="brand-description">Chanel is a French luxury fashion house founded by Coco Chanel. Their fragrances are known for their timeless elegance and sophistication.</p>
+                                <div class="brand-popular-scents">
+                                    <h6>Popular Fragrances:</h6>
+                                    <span class="scent-pill">Chanel No. 5</span>
+                                    <span class="scent-pill">Bleu de Chanel</span>
+                                    <span class="scent-pill">Coco Mademoiselle</span>
+                                </div>
+                                <br>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Brand 3 -->
+            <div class="col-md-6 mb-4">
+                <div class="brand-card"data-brand="tom ford">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="brand-logo-container">
+                                <img src="img\tom ford.jpg" alt="Tom Ford" class="img-fluid rounded-start">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="brand-card-body">
+                                <h3>Tom Ford</h3>
+                                <p class="brand-description">Tom Ford is an American luxury brand known for its bold, sophisticated fragrances that push boundaries with unique and luxurious ingredients.</p>
+                                <div class="brand-popular-scents">
+                                    <h6>Popular Fragrances:</h6>
+                                    <span class="scent-pill">Tobacco Vanille</span>
+                                    <span class="scent-pill">Oud Wood</span>
+                                    <span class="scent-pill">Black Orchid</span>
+                                </div>
+                                <br>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Brand 4 -->
+            <div class="col-md-6 mb-4">
+                <div class="brand-card" data-brand="creed">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="brand-logo-container">
+                                <img src="img\creed.jpg" alt="Creed" class="img-fluid rounded-start">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="brand-card-body">
+                                <h3 id="Creed">Creed</h3>
+                                <p class="brand-description">Founded in 1760, Creed is a luxury perfume house passed from father to son for seven generations, creating unique and artisanal scents.</p>
+                                <div class="brand-popular-scents">
+                                    <h6>Popular Fragrances:</h6>
+                                    <span class="scent-pill">Aventus</span>
+                                    <span class="scent-pill">Green Irish Tweed</span>
+                                    <span class="scent-pill">Silver Mountain Water</span>
+                                </div>
+                                <br>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- All Brands Section -->
+<section class="all-brands py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">All Brands</h2>
+        
+        
+        
+
+        <!-- Brands Grid -->
+<div id="brands-grid" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <!-- Brand Item 1 -->
+    <div class="col">
+        <div class="card brand-card h-100 border-0 shadow-sm" data-brand="Dior">
+            <div class="card-img-container">
+                <img src="img\dior.jpg" class="card-img-top" alt="Dior">
+            </div>
+            <div class="text-center">
+                <h5 class="card-title mb-1" id="dior">Dior</h5>
+                <p class="card-text text-muted small mb-0">Luxury</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brand Item 2 -->
+    <div class="col">
+        <div class="card brand-card h-100 border-0 shadow-sm" data-brand="Chanel">
+            <div class="card-img-container">
+                <img src="img\chanel.jpg" class="card-img-top" alt="Chanel">
+            </div>
+            <div class="text-center">
+                <h5 class="card-title mb-1" id="chanel">Chanel</h5>
+                <p class="card-text text-muted small mb-0">Luxury</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brand Item 3 -->
+    <div class="col">
+        <div class="card brand-card h-100 border-0 shadow-sm" data-brand="Tom Ford">
+            <div class="card-img-container">
+                <img src="img\tom ford.jpg" class="card-img-top" alt="Tom Ford">
+            </div>
+            <div class="text-center">
+                <h5 class="card-title mb-1" id="tomford">Tom Ford</h5>
+                <p class="card-text text-muted small mb-0">Luxury</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brand Item 4 -->
+    <div class="col">
+        <div class="card brand-card h-100 border-0 shadow-sm" data-brand="Creed">
+            <div class="card-img-container">
+                <img src="img\creed.jpg" class="card-img-top" alt="Creed">
+            </div>
+            <div class="text-center">
+                <h5 class="card-title mb-1" id="creed">Creed</h5>
+                <p class="card-text text-muted small mb-0">Niche</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brand Item 5 -->
+    <div class="col">
+        <div class="card brand-card h-100 border-0 shadow-sm" data-brand="Byredo">
+            <div class="card-img-container">
+                <img src="img\byerdo.jpg" class="card-img-top" alt="Byredo">
+            </div>
+            <div class="text-center">
+                <h5 class="card-title mb-1" id="byredo">Byredo</h5>
+                <p class="card-text text-muted small mb-0">Niche</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brand Item 6 -->
+    <div class="col">
+        <div class="card brand-card h-100 border-0 shadow-sm" data-brand="Guerlain">
+            <div class="card-img-container">
+                <img src="img\gueralin.jpg" class="card-img-top" alt="Guerlain">
+            </div>
+            <div class="text-center">
+                <h5 class="card-title mb-1" id="guerlain">Guerlain</h5>
+                <p class="card-text text-muted small mb-0">Luxury</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brand Item 7 -->
+    <div class="col">
+        <div class="card brand-card h-100 border-0 shadow-sm" data-brand="Jo Malone">
+            <div class="card-img-container">
+                <img src="img\jo malone.jpg" class="card-img-top" alt="Jo Malone">
+            </div>
+            <div class="text-center">
+                <h5 class="card-title mb-1" id="jomalone">Jo Malone</h5>
+                <p class="card-text text-muted small mb-0">Designer</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brand Item 8 -->
+    <div class="col">
+        <div class="card brand-card h-100 border-0 shadow-sm" data-brand="Le Labo">
+            <div class="card-img-container">
+                <img src="img\le labo.jpg" class="card-img-top" alt="Le Labo">
+            </div>
+            <div class="text-center">
+                <h5 class="card-title mb-1" id="labo">Le Labo</h5>
+                <p class="card-text text-muted small mb-0">Niche</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brand Item 9 -->
+    <div class="col">
+        <div class="card brand-card h-100 border-0 shadow-sm" data-brand="Maison Margiela">
+            <div class="card-img-container">
+                <img src="img\Maison Margiela.jpg" class="card-img-top" alt="Maison Margiela">
+            </div>
+            <div class="text-center">
+                <h5 class="card-title mb-1" id="maisonmargiela">Maison Margiela</h5>
+                <p class="card-text text-muted small mb-0">Designer</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brand Item 10 -->
+    <div class="col">
+        <div class="card brand-card h-100 border-0 shadow-sm" data-brand="Yves Saint Laurent">
+            <div class="text-center">
+                <img src="img\Yves Saint Laurent.jpeg" class="card-img-top" alt="Yves Saint Laurent">
+            </div>
+            <div class="card-body text-center">
+                <h5 class="card-title mb-1" id="yvessaintlaurent">Yves Saint Laurent</h5>
+                <p class="card-text text-muted small mb-0">Designer</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brand Item 11 -->
+    <div class="col">
+        <div class="card brand-card h-100 border-0 shadow-sm" data-brand="Diptyque">
+            <div class="card-img-container">
+                <img src="img\diptyque brand.jpg" class="card-img-top" alt="Diptyque">
+            </div>
+            <div class="text-center">
+                <h5 class="card-title mb-1" id="diptyque">Diptyque</h5>
+                <p class="card-text text-muted small mb-0">Niche</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brand Item 12 -->
+    <div class="col">
+        <div class="card brand-card h-100 border-0 shadow-sm" data-brand="Penhaligon's">
+            <div class="card-img-container">
+                <img src="img\Penhaligon's.jpg" class="card-img-top" alt="Penhaligon's">
+            </div>
+            <div class="text-center">
+                <h5 class="card-title mb-1" id="penhaligons">Penhaligon's</h5>
+                <p class="card-text text-muted small mb-0">Artisanal</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+        <!-- Pagination -->
+       
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer py-5">
+    <div class="container text-center text-md-start">
+      <div class="row mt-3">
+        <!-- TUNI-SCENT -->
+        <div class="col-md-4">
+          <h5 class="text-uppercase mb-4">TUNI-SCENT</h5>
+          <p>Discover the perfect fragrance for every occasion with our expert reviews and personalized recommendations.</p>
+          <div class="d-flex gap-2 justify-content-start">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-pinterest"></i>
+          </div>
+        </div>
+  
+        <!-- EXPLORE -->
+        <div class="col-md-4">
+          <h5 class="text-uppercase mb-4">Explore</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html#fragrances">Fragrances</a></li>
+            <li class="mb-2"><a href="brands.html">Brands</a></li>
+            
+        </ul>
+        </div>
+  
+        <!-- ACCOUNT -->
+        <div class="col-md-4">
+          <h5 class="text-uppercase mb-4">Account</h5>
+          <ul class="list-unstyled">
+
+            <li class="mb-2"><a class="profile-protected" href="profile.html">My Profile</a></li>
+            <li class="mb-2"><a class="profile-protected" href="profile.html#collections">My Collection</a></li>
+            <li class="mb-2"><a class="profile-protected" href="profile.html#reviews">My Reviews</a></li>
+            
+          </ul>
+        </div>
+      </div>
+  
+      <div class="text-center py-3 mt-4">
+        © 2023 Tuni-Scent. All rights reserved.
+      </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      filterBrandsBySearchQuery();
+    });
+</script>
+
+</body>
+</html>

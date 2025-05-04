@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Tuni-Scent</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-name">TUNI-SCENT</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="brands.html">Brands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Log In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="signin.html">Sign Up</a></li>
+    
+                </ul>
+                <form id="searchForm" class="d-flex">
+                    <div class="input-group">
+                      <input class="form-control search-input" type="search" placeholder="Search fragrances..." id="searchInput">
+                      <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi bi-search"></i>
+                      </button>
+                    </div>
+                  </form>
+                  
+                  
+                
+                <div class="ms-4"> <!-- Added margin-left spacing -->
+                    <a href="panier.html" class="text-dark text-decoration-none">
+                        <i class="bi bi-cart3" style="font-size: 1.25rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="profile-header py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center text-md-start mb-4 mb-md-0" id="profileAvatar">
+                  <div class="profile-avatar-container">
+                    <img src="img/user 1.jpg" alt="Profile Avatar" class="profile-avatar">
+                    <div class="camera-overlay" id="cameraOverlay">
+                        <i class="bi bi-camera"></i>
+                    </div>
+                    <input type="file" id="fileInput" style="display: none;" accept="image/*">
+                </div>   
+                </div>
+                <div class="col-md-9">
+                    <div class="profile-info">
+                        <h1 id="profile-name" class="profile-name"></h1>
+                        <p id="profile-bio" class="profile-bio">Bio placeholder</p>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <span class="stat-value" id="reviewCount">0</span>
+                                <span class="stat-label">Reviews</span>
+                              </div>
+                              <div class="stat">
+                                <span class="stat-value" id="favoriteCount">0</span>
+                                <span class="stat-label">Favorites</span>
+                              </div>
+                              
+                            <div class="stat">
+                                <span class="stat-value" id="collectionCount">0</span>
+                                <span class="stat-label">Collections</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- In profile.html, update the reviews section -->
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2 id="reviews" class="section-title">My Reviews</h2>
+            <a href="index.html?action=review" class="btn btn-outline-dark">Write New Review</a>
+        </div>
+        
+        <div class="row" id="reviewsContainer">
+            <!-- Reviews will be loaded here -->
+        </div>
+        
+        <div id="noReviewsMessage" class="text-center py-5">
+            <h4 class="text-muted mb-3">No reviews yet</h4>
+            <p>Your fragrance reviews will appear here</p>
+        </div>
+    </div>
+</section>
+<!-- Add to profile.html -->
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2 id="collections" class="section-title">My Collection</h2>
+            <button class="btn btn-outline-dark"><a href="index.html#fragrances">Add New Collection</a></button>
+
+        </div>
+        
+        <div class="row" id="collectionContainer">
+            <!-- Collection items will be loaded here -->
+        </div>        
+    </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-5">
+          <h2 id="favorites" class="section-title">My Favorites</h2>
+          <button class="btn btn-outline-dark"><a href="index.html#fragrances">Add New Favorites</a></button>
+
+      </div>
+      
+      <div class="row" id="favoriteContainer">
+          <!-- Collection items will be loaded here -->
+      </div>        
+  </div>
+</section>
+
+
+
+<script>
+    
+
+</script>
+
+<style>
+
+</style>
+
+    <footer class="footer py-5">
+        <div class="container text-center text-md-start">
+          <div class="row mt-3">
+            <!-- TUNI-SCENT -->
+            <div class="col-md-4">
+              <h5 class="text-uppercase mb-4">TUNI-SCENT</h5>
+              <p>Discover the perfect fragrance for every occasion with our expert reviews and personalized recommendations.</p>
+              <div class="d-flex gap-2 justify-content-start">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-pinterest"></i>
+              </div>
+            </div>
+      
+            <!-- EXPLORE -->
+            <div class="col-md-4">
+              <h5 class="text-uppercase mb-4">Explore</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2"><a href="index.html#fragrances">Fragrances</a></li>
+                <li class="mb-2"><a href="brands.html">Brands</a></li>                    
+            </ul>
+            </div>
+      
+            <!-- ACCOUNT -->
+            <div class="col-md-4">
+              <h5 class="text-uppercase mb-4">Account</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                    <a class="profile-protected" href="profile.html">My Profile</a>
+                  </li>
+                  <li class="mb-2">
+                    <a class="profile-protected" href="profile.html#collections">My Collection</a>
+                  </li>
+                  <li class="mb-2">
+                    <a class="profile-protected" href="profile.html#reviews">My Reviews</a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+      
+          <div class="text-center py-3 mt-4">
+            © 2023 Tuni-Scent. All rights reserved.
+          </div>
+        </div>
+      </footer>
+      <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+        <div class="row" id="reviewsContainer"></div>
+        <div id="noReviewsMessage" class="text-center py-5 d-none">
+            <h4 class="text-muted mb-3">No reviews yet</h4>
+            <p>Your fragrance reviews will appear here</p>
+        </div>
+    </div>
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const userId = localStorage.getItem('user_id');
+
+  // Don't touch the navbar anymore here! main.js already handles it.
+
+  // Load profile-specific stuff
+  loadUserDetails(userId);
+  loadUserFavorites(userId);
+  loadUserReviews(userId);
+  loadUserCollection(userId);
+  setupPicUploadHandler(userId);
+
+  // Optional: profile avatar click trigger (if needed)
+  document.getElementById('profileAvatar')?.addEventListener('click', function() {
+    document.getElementById('fileInput')?.click();
+  });
+});
+</script>

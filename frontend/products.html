@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand | Tuni-Scent</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <span class="brand-name">TUNI-SCENT</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="brands.html">Brands</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+      
+      </ul>
+      <form id="searchForm" class="d-flex ms-3">
+        <input class="form-control" type="search" placeholder="Search fragrances..." id="searchInput">
+        <button class="btn btn-outline-dark ms-2" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+      <div class="ms-4">
+        <a href="panier.html" class="text-dark text-decoration-none">
+          <i class="bi bi-cart3" style="font-size: 1.25rem;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="brands-header py-5 bg-light text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-4" id="brand-title">Brand</h1>
+    <p class="lead mb-4">Explore fragrances from your selected brand.</p>
+  </div>
+</section>
+
+<section class="featured-brand py-5">
+  <div class="container" id="brand-container">
+    <!-- Brand content will be inserted here -->
+  </div>
+</section>
+
+<section class="py-5 bg-white">
+  <div class="container">
+    <h2 class="section-title text-center mb-5">More from This Brand</h2>
+    <div class="row" id="relatedProductsContainer">
+      <!-- Related products will be dynamically inserted here -->
+    </div>
+  </div>
+</section>
+
+<footer class="footer py-5">
+  <div class="container text-center text-md-start">
+    <div class="row mt-3">
+      <div class="col-md-4">
+        <h5 class="text-uppercase mb-4">TUNI-SCENT</h5>
+        <p>Discover the perfect fragrance for every occasion with our expert reviews and personalized recommendations.</p>
+        <div class="d-flex gap-2">
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-pinterest"></i>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h5 class="text-uppercase mb-4">Explore</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="index.html#fragrances">Fragrances</a></li>
+          <li class="mb-2"><a href="brands.html">Brands</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5 class="text-uppercase mb-4">Account</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a class="profile-protected" href="profile.html">My Profile</a></li>
+          <li class="mb-2"><a class="profile-protected" href="profile.html#collections">My Collection</a></li>
+          <li class="mb-2"><a class="profile-protected" href="profile.html#reviews">My Reviews</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center py-3 mt-4">© 2023 Tuni-Scent. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const brand = params.get('brand');
+
+    if (!brand) {
+      window.location.href = 'brands.html';
+      return;
+    }
+
+    const brands = {
+  "Dior": {
+    name: "Dior",
+    image: "img/dior.jpg",
+    description: "Christian Dior is a luxury French fashion house known for its elegant and sophisticated fragrances.",
+    popular: ["Sauvage", "J'adore", "Miss Dior"],
+    category: "Luxury"
+  },
+  "Chanel": {
+    name: "Chanel",
+    image: "img/chanel.jpg",
+    description: "Chanel is a French luxury brand famed for timeless elegance in both fashion and fragrance.",
+    popular: ["Chanel No. 5", "Bleu de Chanel", "Coco Mademoiselle"],
+    category: "Luxury"
+  },
+  "Tom Ford": {
+    name: "Tom Ford",
+    image: "img/tom ford.jpg",
+    description: "Tom Ford creates bold, modern fragrances that are luxurious and boundary-pushing.",
+    popular: ["Tobacco Vanille", "Oud Wood", "Black Orchid"],
+    category: "Luxury"
+  },
+  "Creed": {
+    name: "Creed",
+    image: "img/creed.jpg",
+    description: "Creed has been creating artisanal scents since 1760, known for luxury and tradition.",
+    popular: ["Aventus", "Green Irish Tweed", "Silver Mountain Water"],
+    category: "Niche"
+  },
+  "Byredo": {
+    name: "Byredo",
+    image: "img/byerdo.jpg",
+    description: "Byredo is a European luxury brand known for its artistic and modern fragrances.",
+    popular: ["Gypsy Water", "Bal d'Afrique", "Blanche"],
+    category: "Niche"
+  },
+  "Guerlain": {
+    name: "Guerlain",
+    image: "img/gueralin.jpg",
+    description: "Founded in 1828, Guerlain is one of the oldest perfume houses, renowned for its refined scents.",
+    popular: ["Shalimar", "La Petite Robe Noire", "Mon Guerlain"],
+    category: "Luxury"
+  },
+  "Jo Malone": {
+    name: "Jo Malone",
+    image: "img/jo malone.jpg",
+    description: "Jo Malone is a British brand known for elegant, simple fragrances and luxurious home scents.",
+    popular: ["Peony & Blush Suede", "Lime Basil & Mandarin", "English Pear & Freesia"],
+    category: "Designer"
+  },
+  "Le Labo": {
+    name: "Le Labo",
+    image: "img/le labo.jpg",
+    description: "Le Labo is a niche perfume house that emphasizes hand-blended, personalized fragrance experiences.",
+    popular: ["Santal 33", "Another 13", "Thé Noir 29"],
+    category: "Niche"
+  },
+  "Maison Margiela": {
+    name: "Maison Margiela",
+    image: "img/Maison Margiela.jpg",
+    description: "Maison Margiela's Replica line recreates familiar scents and moments, blending nostalgia and luxury.",
+    popular: ["Jazz Club", "Lazy Sunday Morning", "By the Fireplace"],
+    category: "Designer"
+  },
+  "Yves Saint Laurent": {
+    name: "Yves Saint Laurent",
+    image: "img/Yves Saint Laurent.jpeg",
+    description: "YSL fragrances combine fashion-forward flair with sensual and iconic olfactory signatures.",
+    popular: ["La Nuit de L'Homme", "Black Opium", "Libre"],
+    category: "Designer"
+  },
+  "Diptyque": {
+    name: "Diptyque",
+    image: "img/diptyque brand.jpg",
+    description: "Diptyque is a French niche fragrance house admired for its unique, artistic scents and candles.",
+    popular: ["Philosykos", "Eau Rose", "Tam Dao"],
+    category: "Niche"
+  },
+  "Penhaligon's": {
+    name: "Penhaligon's",
+    image: "img/Penhaligon's.jpg",
+    description: "Penhaligon's is a historic British perfumery offering eccentric and refined fragrance creations.",
+    popular: ["Halfeti", "The Tragedy of Lord George", "Blenheim Bouquet"],
+    category: "Artisanal"
+  }
+};
+
+    const selectedBrand = Object.values(brands).find(b => b.name.toLowerCase() === brand.toLowerCase());
+
+    if (!selectedBrand) {
+      window.location.href = 'brands.html';
+      return;
+    }
+
+    document.title = `${selectedBrand.name} | Tuni-Scent`;
+    document.getElementById('brand-title').textContent = selectedBrand.name;
+
+    const brandHTML = `
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow-sm border-0">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="${selectedBrand.image}" class="img-fluid rounded-start" alt="${selectedBrand.name}">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h3>${selectedBrand.name}</h3>
+                  <p>${selectedBrand.description}</p>
+                  <h6>Popular Fragrances:</h6>
+                  ${selectedBrand.popular.map(scent => `<span class="badge bg-secondary me-1">${scent}</span>`).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('brand-container').innerHTML = brandHTML;
+  });
+
+  async function fetchRelatedProductsByBrand(brand) {
+    try {
+      const response = await fetch("http://localhost:5000/products");
+      if (!response.ok) throw new Error("Failed to fetch products");
+
+      const allProducts = await response.json();
+
+      const related = allProducts.filter(product => 
+        product.brand.toLowerCase() === brand.toLowerCase()
+      );
+
+      displayRelatedProducts(related);
+    } catch (error) {
+      console.error("Error fetching related products:", error);
+      document.getElementById("relatedProductsContainer").innerHTML = `
+        <div class="col text-center text-danger">
+          Failed to load related products. Please try again later.
+        </div>
+      `;
+    }
+  }
+
+  function displayRelatedProducts(products) {
+    const container = document.getElementById("relatedProductsContainer");
+    container.innerHTML = "";
+
+    if (products.length === 0) {
+      container.innerHTML = `<div class="col text-center text-muted">No related products found for this brand.</div>`;
+      return;
+    }
+
+    products.forEach(product => {
+      const col = document.createElement("div");
+      col.classList.add("col-md-4", "mb-4");
+
+      col.innerHTML = `
+        <div class="card h-100 shadow-sm">
+          <img src="http://localhost:5000/static/${product.image}" class="card-img-top" alt="${product.name}">
+          <div class="card-body">
+            <h5 class="card-title">${product.name}</h5>
+            <p class="card-text text-muted">${product.brand}</p>
+            <button class="btn btn-outline-dark btn-sm me-2" onclick="addToCart(${product.id})">Add to Cart</button>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(col);
+    });
+  }
+
+  // Extract 'brand' parameter from URL and fetch related products
+  document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const brand = params.get("brand");
+
+    if (brand) {
+      fetchRelatedProductsByBrand(brand);
+    } else {
+      document.getElementById("relatedProductsContainer").innerHTML = `
+        <div class="col text-center text-muted">No brand specified in URL.</div>
+      `;
+    }
+  });
+</script>
+
+</body>
+</html>
